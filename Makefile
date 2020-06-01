@@ -3,7 +3,7 @@
 
 include config.mk
 
-SRC = drw.c dwm.c util.c
+SRC = drw.c dwm.c util.c shiftview.c
 OBJ = ${SRC:.c=.o}
 
 all: options dwm
@@ -19,18 +19,16 @@ options:
 
 ${OBJ}: config.h config.mk
 
-config.h:
-	cp config.def.h $@
-
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
+	md5sum dwm > dwm.hash
 
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
 
 dist: clean
 	mkdir -p dwm-${VERSION}
-	cp -R LICENSE Makefile README config.def.h config.mk\
+	cp -R LICENSE Makefile README config.h config.mk\
 		dwm.1 drw.h util.h ${SRC} dwm.png transient.c dwm-${VERSION}
 	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
 	gzip dwm-${VERSION}.tar

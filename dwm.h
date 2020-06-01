@@ -99,4 +99,8 @@ typedef struct {
 } Rule;
 
 
+extern Monitor *mons, *selmon;
+extern const char *tags[9];
+extern void view(const Arg *arg);
+extern void tag(const Arg *arg);
 #endif /* HG_DWM_H */
