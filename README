@@ -3,7 +3,18 @@ dwm - dynamic window manager
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
-Requirements
+Changes
+-------
+
+1. Uses Windows key (Mod4) instead of Alt key (Mod1)
+2. Instead of quiting dwm with just Shift-Q, exiting now needs a two button combination;
+   first Shift-A to arm and then Shift-Q to really quit. This to prevent an accidental quit
+   and losing work.
+3. Added PgUp and PgDown to cycle tags
+4. Added volume buttons
+
+
+Requirement
 ------------
 In order to build dwm you need the Xlib header files.
 
